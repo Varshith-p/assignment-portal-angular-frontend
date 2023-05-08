@@ -10,15 +10,17 @@ import { Assignment } from '../../Assignment';
   styleUrls: ['./add-assignment.component.css']
 })
 export class AddAssignmentComponent {
+  date = new Date();
+  today = `${this.date.getFullYear()}-${('0'+(this.date.getMonth()+1)).slice(-2)}-${('0'+this.date.getDate()).slice(-2)}`
   assignment: Assignment = {
     name: "",
     subject: "",
-    startDate: new Date(),
-    endDate: new Date(),
+    startDate: this.today,
+    endDate: this.today,
   }
   submitted: boolean = false;
 
-  constructor(private router: Router, private service: AssignmentService) {}
+  constructor(private router: Router, private service: AssignmentService) { }
 
   backToHome() {
     this.router.navigate(['/']);
@@ -29,6 +31,6 @@ export class AddAssignmentComponent {
     this.submitted = true;
     setTimeout(()=> {
       this.backToHome();
-    }, 1000)
+    }, 500)
   }
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AssignmentService {
-  apiUrl: string = "http://localhost:4000/api/v1/assignments";
+  apiUrl: string = "https://merudataexpresstask.cyclic.app/api/v1/assignments";
 
   constructor(private http:HttpClient) { }
 
